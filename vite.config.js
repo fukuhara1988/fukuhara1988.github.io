@@ -7,7 +7,7 @@ const root = "";//フォルダの階層を変更したらここもそれにあ�
 
 export default defineConfig({
   root,
-  base: "/",
+  base: "/portfolio-webgl",
   publicDir: "./public",//フォルダの階層を変更したらここもそれにあった記述に変更する
   plugins: [
     splitVendorChunkPlugin(),
