@@ -219,7 +219,7 @@ async function initCloud(){
 	// });
 
 	const texLoader = new THREE.TextureLoader();
-	const texture = await texLoader.loadAsync('/portfolio-webgl/image/cloud.png');
+	const texture = await texLoader.loadAsync('/image/cloud.png');
 	const material = new THREE.MeshBasicMaterial({map:texture});
 	// return material
 	// メッシュ
