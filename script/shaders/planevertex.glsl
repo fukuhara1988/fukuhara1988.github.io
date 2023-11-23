@@ -12,8 +12,6 @@ varying float vN;
 uniform float progressPlane;
 uniform float uTick;
 
-//#pragma glslify: snoise = require(glsl-noise/simplex/3d);
-
 void main() {
 
  vUv = uv;
