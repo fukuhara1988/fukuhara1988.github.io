@@ -10,7 +10,6 @@ import fragmentShader from "./shaders/fragment.glsl";
 import texFragment from "./shaders/texFragment.glsl";
 import GUI from "lil-gui";
 import { clamp } from 'three/src/math/MathUtils';
-// import glslify from "rollup-plugin-glslify";
 
 
 const scene = new THREE.Scene();
