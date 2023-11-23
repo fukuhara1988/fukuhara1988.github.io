@@ -373,7 +373,6 @@ camera.position.z = 5;
 // gui.add(material.uniforms.colorB, "value", 0, 1, 0.01).name("colorB");
 // gui.add(material.uniforms.alpha, "value", 0, 1, 0.01).name("alpha");
 // gui.add(material.uniforms.progressText, "value", 0, 1, 0.01).name("progressText");
-// gui.add(planeMate.uniforms.progressPlane, "value", 0, 1, 0.01).name("progressPlane");
 
 //ーーーーーーーーーーーーーーーーーーーー
 let time = 0;
