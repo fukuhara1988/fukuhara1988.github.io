@@ -4,10 +4,13 @@ import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import vertexShader from "./shaders/vertex.glsl";
 import planeVertexShader from "./shaders/planevertex.glsl";
+import texVertex from "./shaders/texVertex.glsl";
 import planeFragmentShader from "./shaders/planefragment.glsl";
 import fragmentShader from "./shaders/fragment.glsl";
+import texFragment from "./shaders/texFragment.glsl";
 import GUI from "lil-gui";
 import { clamp } from 'three/src/math/MathUtils';
+// import glslify from "rollup-plugin-glslify";
 
 
 const scene = new THREE.Scene();
@@ -216,24 +219,31 @@ for(let i = 0;i < vertexValue; i++){
 // console.log(vertexValue);
 planeGeome.setAttribute("vertexrandam", new THREE.Float32BufferAttribute(vertexArry, 1));
 
-const planeMate = new THREE.ShaderMaterial({
-	vertexShader:planeVertexShader,
-	fragmentShader:planeFragmentShader,
-	// wireframe:true,
-	// shadowSide:THREE.BackSide,
-	transparent:true,
-	side: THREE.DoubleSide,
-	uniforms:{
-		colorR:{value:1.0},
-		colorG:{value:1.0},
-		colorB:{value:1.0},
-		alpha:{value:1.0},
-		progressPlane:{value:0.0},
-		uTexture1:{value:await loadTex("/image/marek-piwnicki-Wmt2ZUrUdEY-unsplash-min (カスタム).jpg")},
-		uTexture2:{value:await loadTex("/image/ander-pena-REAMd8gKbPc-unsplash (1).jpg")},
-		// uTick:{value:0 }
-	}
-});
+async function planeMateFn(){
+
+	const planeMate = new THREE.ShaderMaterial({
+		vertexShader:planeVertexShader,
+		fragmentShader:planeFragmentShader,
+		// wireframe:true,
+		// shadowSide:THREE.BackSide,
+		transparent:true,
+		side: THREE.DoubleSide,
+		uniforms:{
+			colorR:{value:1.0},
+			colorG:{value:1.0},
+			colorB:{value:1.0},
+			alpha:{value:1.0},
+			progressPlane:{value:0.0},
+			uTexture1:{value:await loadTex("/image/marek-piwnicki-Wmt2ZUrUdEY-unsplash-min (カスタム).jpg")},
+			uTexture2:{value:await loadTex("/image/ander-pena-REAMd8gKbPc-unsplash (1).jpg")},
+			// uTick:{value:0 }
+		}
+	});
+
+	return planeMate;
+}
+
+const planeMate = planeMateFn();
 
 const planeMesh = new THREE.Mesh(planeGeome, planeMate);
 // const planeMesh = new THREE.Points(planeGeome, planeMate);
@@ -357,13 +367,13 @@ camera.position.z = 5;
 
 //＜lil-gui＞の実装
 //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-const gui = new GUI();
-gui.add(material.uniforms.colorR, "value", 0, 1, 0.01).name("colorR");
-gui.add(material.uniforms.colorG, "value", 0, 1, 0.01).name("colorG");
-gui.add(material.uniforms.colorB, "value", 0, 1, 0.01).name("colorB");
-gui.add(material.uniforms.alpha, "value", 0, 1, 0.01).name("alpha");
-gui.add(material.uniforms.progressText, "value", 0, 1, 0.01).name("progressText");
-gui.add(planeMate.uniforms.progressPlane, "value", 0, 1, 0.01).name("progressPlane");
+// const gui = new GUI();
+// gui.add(material.uniforms.colorR, "value", 0, 1, 0.01).name("colorR");
+// gui.add(material.uniforms.colorG, "value", 0, 1, 0.01).name("colorG");
+// gui.add(material.uniforms.colorB, "value", 0, 1, 0.01).name("colorB");
+// gui.add(material.uniforms.alpha, "value", 0, 1, 0.01).name("alpha");
+// gui.add(material.uniforms.progressText, "value", 0, 1, 0.01).name("progressText");
+// gui.add(planeMate.uniforms.progressPlane, "value", 0, 1, 0.01).name("progressPlane");
 
 //ーーーーーーーーーーーーーーーーーーーー
 let time = 0;
