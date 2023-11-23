@@ -4,10 +4,8 @@ import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import vertexShader from "./shaders/vertex.glsl";
 import planeVertexShader from "./shaders/planevertex.glsl";
-import texVertex from "./shaders/texVertex.glsl";
 import planeFragmentShader from "./shaders/planefragment.glsl";
 import fragmentShader from "./shaders/fragment.glsl";
-import texFragment from "./shaders/texFragment.glsl";
 import GUI from "lil-gui";
 import { clamp } from 'three/src/math/MathUtils';
 
