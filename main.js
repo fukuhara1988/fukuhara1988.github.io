@@ -1,4 +1,7 @@
-import * as THREE from 'three';
+//import * as THREE from 'three';
+// 相対パスを使用する場合
+import * as THREE from './path/to/three.module.js';
+
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
