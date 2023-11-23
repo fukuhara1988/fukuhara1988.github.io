@@ -16,7 +16,7 @@ uniform float progressText;
 uniform float uTick;
 uniform float uScale;
 
-#pragma glslify: snoise = require(glsl-noise/simplex/3d);
+//#pragma glslify: snoise = require(glsl-noise/simplex/3d);
 
 void main() {
  vUv = uv;
